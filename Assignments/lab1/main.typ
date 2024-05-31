@@ -18,6 +18,8 @@
 
 = Problem Statement
 
+== Lab Exercise <ques-3>
+
 Write a MATLAB script file to do steps (a) through (d) below. Include a listing of the script file with your report.
 
 (a) Generate a time vector (tt) to cover a range of t that will exhibit approximately two cycles of the *4000 Hz* sinusoids defined in the next part, part (b). Use a definition for tt similar to part 2.2(d). 
@@ -69,8 +71,69 @@ Use appropriate constants for $X$ and $omega$.
 
 = Solution
 
-== Source Program
+== Source Program for Section 3
 
-== Graphs and Results
+Solution for @ques-3
+```matlab
+Tp = 1/4000;
+N_samples = 50;
+
+tt = linspace(-Tp, Tp, N_samples);
+
+Age = 21;
+Month = 7;
+Day = 23;
+
+Amp1 = Age;
+Amp2 = 1.2 * Amp1;
+
+tm1 = (37.2 / Month) * Tp;
+tm2 = -(41.3 / Day) * Tp;
+
+x1 = Amp1 * cos(2 * pi * 4000 * (tt - tm1));
+x2 = Amp2 * cos(2 * pi * 4000 * (tt - tm2));
+
+x3 = x1 + x2
+
+figure();
+
+subplot(3, 1, 1);
+plot(x1, tt);
+xlabel("X1 Sinusoid");
+ylabel("tt range");
+title("X1 generated Signal");
+
+subplot(3, 1, 2);
+plot(x2, tt);
+xlabel("X1 Sinusoid")
+ylabel("tt range");
+title("X2 generated Signal");
+
+subplot(3, 1, 3);
+plot(x3, tt);
+xlabel("X1 Sinusoid")
+ylabel("tt range");
+title("X3 generated Signal");
+
+orient(gcf, "tall");
+
+saveas(gcf, "subplots_tall.png");
+
+figure(gcf);
+```
+
+=== Solution for Section 3.1
+
+
+
+=== Graphs and Results
+
+#figure(caption: "Generated Subplots for the Signals", image("subplots_tall.png"))
+
+== Source Code for Section 3.2
+
+```matlab
+x1 = Amp1 * exp(i * 8000 * pi * (tt - tm1))
+```
 
 == Conclusion
