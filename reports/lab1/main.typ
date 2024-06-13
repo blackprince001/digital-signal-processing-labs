@@ -133,7 +133,7 @@ figure(gcf);
 == Source Code for Section 3.2
 
 ```matlab
-x1 = Amp1 * exp(i * 8000 * pi * (tt - tm1))
+x1 = real(Amp1 * exp(j * 8000 * pi * (tt - tm1)))
 ```
 
 == Conclusion
